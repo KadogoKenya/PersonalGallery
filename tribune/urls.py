@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+
 from django.conf.urls import url,include
 from django.contrib import admin
 
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^images/',include('news.urls')),
+    url(r'^admin/', admin.site.urls),
+    url(r'^images/',include('images.urls'))
 ]
