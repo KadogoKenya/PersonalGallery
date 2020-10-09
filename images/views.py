@@ -5,20 +5,14 @@ from django.http  import HttpResponse,Http404
 
 # Create your views here.
 def welcome(request):
-    return render HttpResponse(request,'welcome.html')
+    return render(request,'welcome.html')
 
 def images_of_day(request):
     date = dt.date.today()
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     day = convert_dates(date)
-    html = f'''
-        <html>
-            <body>
-                <h1> {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
+    
+    return render(request,'all-images/today-images.html',{"date":date})
 
 def convert_dates(dates):
 
