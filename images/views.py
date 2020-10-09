@@ -5,7 +5,7 @@ from django.http  import HttpResponse,Http404
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse(request,'welcome.html')
+    return render HttpResponse(request,'welcome.html')
 
 def images_of_day(request):
     date = dt.date.today()
