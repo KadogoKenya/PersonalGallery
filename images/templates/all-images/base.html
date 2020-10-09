@@ -19,6 +19,8 @@
 </head>
 <body>
   <div class="container">
+    {% include "navbar.html" %}
+    
     {% block content %} 
     <h1>Images for {{date|date:"l d-F Y"}}</h1> 
     {%endblock%}
