@@ -19,8 +19,8 @@ class Image(models.Model):
     image_name = models.CharField(max_length =30)
     image_description = models.CharField(max_length =1000)
     editor = models.ForeignKey(Editor)
-    editor = models.ForeignKey(Editor)
-    editor = models.ForeignKey(Editor)
+    editor = models.ForeignKey(Location)
+    editor = models.ForeignKey(Category)
 class Location(models.Model):
     name = models.CharField(max_length =30)
 
@@ -29,6 +29,13 @@ class Location(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length =30)
+    <label for="category">Choose a category for images:</label>
+    <select name="category" id="category">
+        <option value="Travel">Travel</option>
+        <option value="Food & drinks">Food & drinks</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Wedding">Wedding</option>
+    </select>
 
     def __str__(self):
         return self.name
