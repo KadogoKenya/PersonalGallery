@@ -8,7 +8,7 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
-class Category(models.Model):
+class category(models.Model):
     name = models.CharField(max_length =100)
     
 
@@ -16,12 +16,14 @@ class Category(models.Model):
         return self.name
    
 class Image(models.Model):
-    image = models.ImageField(upload_to = 'images/')
+    image = models.ImageField(upload_to = 'location/')
     image_name = models.CharField(max_length =100)
     image_description = models.TextField()
 
-    editor = models.CharField(max_length=30, default='admin')
+    author = models.CharField(max_length=30, default='admin')
+
     date = models.DateTimeField(auto_now_add=True)
 
     location = models.ForeignKey(Location,on_delete=models.SET_NULL, null=True)
+
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
