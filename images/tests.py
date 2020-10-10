@@ -6,7 +6,7 @@ class ImageTestClass(TestCase):
 
 
     # Creating a new tag and saving it
-    self.location = Location('Desktop')
+    self.location = Location('desktop')
     self.location.save_location()
 
 
@@ -56,4 +56,18 @@ class ImageTestClass(TestCase):
         Location.objects.all().delete()
         Category.objects.all().delete()
 
+
+class TestLocation(TestCase)
+
+    def setUp(self):
+        self.location = Location(name='desktop')
+        self.location.save_location()
+
+    def test_instance(self)
+        self.assertTrue(isinstance(self.location,Location))
+
+    def test_save_location(self):
+        self.location.save_image()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations) > 0)
     
