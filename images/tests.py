@@ -35,19 +35,19 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(images) == 0)
 
 
-    def get_image_by_id(self):
+    def test_get_image_by_id(self):
         imagesfind=self.imagetest.get_image_by_id(self.imagetest.id)
         images = Image.objects.filter(id=self.imagetest.id)
         self.assertTrue(imagesfind,image)
 
-    def search_image(category):
+    def test_search_image_by_category(self):
         self.imagetest.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
 
-    def filter_by_location(self):
+    def test_filter_by_location(self):
         self.imagetest.save_image()
         imagesfind=self.imagetest.filter_by_location(location='desktop')
-        self.assertTrue(len(images) > 0)
+        self.assertTrue(len(imagesfind) > 0)
 
     
