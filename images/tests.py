@@ -24,7 +24,7 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(images) > 0)
 
     def test_update_image(self):
-        self.imagetest.save_image()
+        self.imagetest.update_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
 
