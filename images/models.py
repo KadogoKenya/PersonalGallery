@@ -17,12 +17,16 @@ class Category(models.Model):
    
 class Image(models.Model):
     image = models.ImageField(upload_to = 'location/')
-    name = models.CharField(max_length =100)
-    description = models.TextField()
+    image_name = models.CharField(max_length =100)
+    image_description = models.TextField()
 
-    author = models.CharField(max_length=30, default='admin')
+    image_author = models.CharField(max_length=30, default='admin')
 
     pub_date = models.DateTimeField(auto_now_add=True)
     location = models.ForeignKey(Location,on_delete=models.SET_NULL, null=True)
 
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+
+
+    def save_image(self):
+        self.save()
