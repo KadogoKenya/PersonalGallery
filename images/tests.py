@@ -5,14 +5,17 @@ from .models import Image,Location,Category
 class ImageTestClass(TestCase):
 
 
-     # Creating a new tag and saving it
-        self.location = Location('Desktop')
-        self.location.save_location()
+    # Creating a new tag and saving it
+   
 
 
     # Set up method
     def setUp(self):
         self.imagetest= Image(id=1,image_name = 'image',image_author="james", image_description ='try this sample test image', location=self.location,category=self.category)
+
+
+    self.location = Location('Desktop')
+    self.location.save_location()
 
     # Testing  instance
     def test_instance(self):
@@ -48,6 +51,12 @@ class ImageTestClass(TestCase):
     def test_filter_by_location(self):
         self.imagetest.save_image()
         imagesfind=self.imagetest.filter_by_location(location='desktop')
-        self.assertTrue(len(imagesfind) > 0)
+        self.assertTrue(len(imagesfind) > 1)
+
+
+    def tearDown(self):
+        Image.objects.all().delete()
+        Location.objects.all().delete()
+        Category.objects.all().delete()
 
     
