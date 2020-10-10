@@ -11,6 +11,9 @@ class Editor(models.Model):
     def __str__(self):
         return self.first_name
 
+    class Meta:
+        ordering = ['first_name']
+
 class Image(models.Model):
     image = models.ImageField(upload_to = 'location/')
     image_name = models.CharField(max_length =30)
