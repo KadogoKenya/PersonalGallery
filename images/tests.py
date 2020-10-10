@@ -91,4 +91,8 @@ class CategoryTestClass(TestCase)
     def def setUp(self):
         self.category = Category(name='mainpage')
         self.category.save_category()
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.category, Category))
+
     
