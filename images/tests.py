@@ -26,7 +26,6 @@ class ImageTestClass(TestCase):
     def test_update_image(self):
         self.imagetest.save_image()
         self.imagetest.update_image(self.imagetest.id,'images/test.jpg')
-        # images = Image.objects.all()
         imageschange = Image.objects.filter(image='images/test.jpg')
         self.assertTrue(len(imageschange) > 0)
 
@@ -36,7 +35,7 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(images) == 0)
 
 
-    def get_image_by_id(id):
+    def get_image_by_id(self):
         self.imagetest.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
