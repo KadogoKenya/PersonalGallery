@@ -42,8 +42,8 @@ class ImageTestClass(TestCase):
 
     def test_search_image_by_category(self):
         self.imagetest.save_image()
-        images = Image.objects.all()
-        self.assertTrue(len(images) > 0)
+        imagesFind = self.imagetest.search_image_by_category(category)
+        self.assertTrue(len(imagesFind) == 1)
 
     def test_filter_by_location(self):
         self.imagetest.save_image()
