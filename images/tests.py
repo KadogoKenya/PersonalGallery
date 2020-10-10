@@ -2,13 +2,13 @@ from django.test import TestCase
 from .models import Image,Location,Category
 # Create your tests here.
 
-class LocationTestClass(TestCase)
+class LocationTestClass(TestCase):
 
     def setUp(self):
         self.location = Location(name='desktop')
         self.location.save_location()
 
-    def test_instance(self)
+    def test_instance(self):
         self.assertTrue(isinstance(self.location,Location))
 
     def test_save_location(self):
@@ -24,16 +24,16 @@ class LocationTestClass(TestCase)
     def test_update_location(self):
         new_location = 'kisii'
         self.location.update_location(self.location.id, new_location)
-        changed_location = Location.objects.filter(name='kisii')
-        self.assertTrue(len(changed_location) > 0)
+        locationCurrent = Location.objects.filter(name='kisii')
+        self.assertTrue(len(locationCurrent) > 0)
 
     def test_delete_location(self):
         self.location.delete_location()
         location = Location.objects.all()
         self.assertTrue(len(location) == 0)
 
-class CategoryTestClass(TestCase)
-    def def setUp(self):
+class CategoryTestClass(TestCase):
+    def setUp(self):
         self.category = Category(name='mainpage')
         self.category.save_category()
 
@@ -52,14 +52,15 @@ class CategoryTestClass(TestCase)
 
 class ImageTestClass(TestCase):
 
-
-    # Creating a new tag and saving it
-    self.location = Location('desktop')
-    self.location.save_location()
-
-
     # Set up method
     def setUp(self):
+
+        self.location = Location(name='desktop')
+        self.location.save_location()
+
+        self.category = Category(name='mainpage')
+        self.category.save_category()
+
         self.imagetest= Image(id=1,image_name = 'image',image_author="james", image_description ='try this sample test image', location=self.location,category=self.category)
 
     # Testing  instance
