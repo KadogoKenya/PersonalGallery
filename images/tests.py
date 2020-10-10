@@ -45,9 +45,9 @@ class ImageTestClass(TestCase):
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
 
-    def filter_by_location(location):
+    def filter_by_location(self):
         self.imagetest.save_image()
-        images = Image.objects.all()
+        imagesfind=self.imagetest.filter_by_location(location='desktop')
         self.assertTrue(len(images) > 0)
 
     
