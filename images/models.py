@@ -18,14 +18,16 @@ class Image(models.Model):
     image = models.ImageField(upload_to = 'location/')
     image_name = models.CharField(max_length =30)
     image_description = models.CharField(max_length =1000)
-    
-class location(models.Model):
+    editor = models.ForeignKey(Editor)
+    editor = models.ForeignKey(Editor)
+    editor = models.ForeignKey(Editor)
+class Location(models.Model):
     name = models.CharField(max_length =30)
 
     def __str__(self):
         return self.name
 
-class category(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length =30)
 
     def __str__(self):
