@@ -2,6 +2,54 @@ from django.test import TestCase
 from .models import Image,Location,Category
 # Create your tests here.
 
+class LocationTestClass(TestCase)
+
+    def setUp(self):
+        self.location = Location(name='desktop')
+        self.location.save_location()
+
+    def test_instance(self)
+        self.assertTrue(isinstance(self.location,Location))
+
+    def test_save_location(self):
+        self.location.save_location()
+        locations = Location.get_locations()
+        self.assertTrue(len(locations) > 0)
+
+    def test_get_locations(self):
+        self.location.save_location()
+        locations = Location.get_locations()
+        self.assertTrue(len(locations) > 1)
+
+    def test_update_location(self):
+        new_location = 'kisii'
+        self.location.update_location(self.location.id, new_location)
+        changed_location = Location.objects.filter(name='kisii')
+        self.assertTrue(len(changed_location) > 0)
+
+    def test_delete_location(self):
+        self.location.delete_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location) == 0)
+
+class CategoryTestClass(TestCase)
+    def def setUp(self):
+        self.category = Category(name='mainpage')
+        self.category.save_category()
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.category, Category))
+
+    def test_save_category(self):
+        self.category.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories) > 0)
+
+    def test_delete_category(self):
+        self.category.delete_category()
+        category = Category.objects.all()
+        self.assertTrue(len(category) == 0)
+
 class ImageTestClass(TestCase):
 
 
@@ -56,53 +104,5 @@ class ImageTestClass(TestCase):
         Location.objects.all().delete()
         Category.objects.all().delete()
 
-
-class LocationTestClass(TestCase)
-
-    def setUp(self):
-        self.location = Location(name='desktop')
-        self.location.save_location()
-
-    def test_instance(self)
-        self.assertTrue(isinstance(self.location,Location))
-
-    def test_save_location(self):
-        self.location.save_location()
-        locations = Location.get_locations()
-        self.assertTrue(len(locations) > 0)
-
-    def test_get_locations(self):
-        self.location.save_location()
-        locations = Location.get_locations()
-        self.assertTrue(len(locations) > 1)
-
-    def test_update_location(self):
-        new_location = 'kisii'
-        self.location.update_location(self.location.id, new_location)
-        changed_location = Location.objects.filter(name='kisii')
-        self.assertTrue(len(changed_location) > 0)
-
-    def test_delete_location(self):
-        self.location.delete_location()
-        location = Location.objects.all()
-        self.assertTrue(len(location) == 0)
-
-class CategoryTestClass(TestCase)
-    def def setUp(self):
-        self.category = Category(name='mainpage')
-        self.category.save_category()
-
-    def test_instance(self):
-        self.assertTrue(isinstance(self.category, Category))
-
-    def test_save_category(self):
-        self.category.save_category()
-        categories = Category.objects.all()
-        self.assertTrue(len(categories) > 0)
-
-    def test_delete_category(self):
-        self.category.delete_category()
-        category = Category.objects.all()
-        self.assertTrue(len(category) == 0)
 
     
