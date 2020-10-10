@@ -18,6 +18,24 @@ class Location(models.Model):
         news = cls.objects.filter(pub_date__date = today)
         return images
 
+    @classmethod
+    def todays_news(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
+
+    @classmethod
+    def todays_news(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
+
+    @classmethod
+    def todays_news(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
+
 
 
     def __str__(self):
