@@ -57,7 +57,7 @@ class ImageTestClass(TestCase):
         Category.objects.all().delete()
 
 
-class TestLocation(TestCase)
+class LocationTestClass(TestCase)
 
     def setUp(self):
         self.location = Location(name='desktop')
@@ -71,13 +71,24 @@ class TestLocation(TestCase)
         locations = Location.get_locations()
         self.assertTrue(len(locations) > 0)
 
+    def test_get_locations(self):
+        self.location.save_location()
+        locations = Location.get_locations()
+        self.assertTrue(len(locations) > 1)
+
     def test_update_location(self):
-        self.location.save_image()
-        locations = Location.objects.all()
-        self.assertTrue(len(locations) > 0)
+        new_location = 'kisii'
+        self.location.update_location(self.location.id, new_location)
+        changed_location = Location.objects.filter(name='kisii')
+        self.assertTrue(len(changed_location) > 0)
 
     def test_delete_location(self):
-        self.location.save_image()
-        locations = Location.objects.all()
-        self.assertTrue(len(locations) > 0)
+        self.location.delete_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location) == 0)
+
+class CategoryTestClass(TestCase)
+    def def setUp(self):
+        self.category = Category(name='mainpage')
+        self.category.save_category()
     
