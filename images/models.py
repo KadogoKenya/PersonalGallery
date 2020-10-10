@@ -1,5 +1,6 @@
 from django.db import models
 from django.db import models
+import datetime as dt
 
 
 class Location(models.Model):
@@ -10,6 +11,13 @@ class Location(models.Model):
 
     def delete_location(self):
         self.delete()
+
+    @classmethod
+    def todays_images(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return images
+
 
 
     def __str__(self):

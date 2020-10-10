@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Image,Location,Category
+
 # Create your tests here.
 
 class LocationTestClass(TestCase):
@@ -85,9 +86,9 @@ class ImageTestClass(TestCase):
 
 
     def test_get_image_by_id(self):
-        imagesfind=self.imagetest.get_image_by_id(self.imagetest.id)
+        today_images=self.imagetest.get_image_by_id(self.imagetest.id)
         images = Image.objects.filter(id=self.imagetest.id)
-        self.assertTrue(imagesfind,image)
+        self.assertTrue(today_images,image)
 
     def test_search_image_by_category(self):
         self.imagetest.save_image()
@@ -105,5 +106,9 @@ class ImageTestClass(TestCase):
         Location.objects.all().delete()
         Category.objects.all().delete()
 
+    def test_get_images_today(self):
+        today_images = Image.todays_images()
+        self.assertTrue(len(today_images)>0)
 
+    
     
