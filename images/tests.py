@@ -29,17 +29,17 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(images) > 0)
 
 
-    def test_update_image(self):
+    def get_image_by_id(id):
         self.imagetest.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
 
-    def test_save_image(self):
+    def search_image(category):
         self.imagetest.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
 
-    def test_save_image(self):
+    def filter_by_location(location):
         self.imagetest.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
