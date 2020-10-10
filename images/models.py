@@ -54,18 +54,15 @@ class Image(models.Model):
 
      @classmethod
     def tget_image_by_id(cls,id):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
+        images = cls.objects.filter(id = id)
+        return images
 
     @classmethod
     def search_image_by_category(cls,category):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
+        images = cls.objects.filter(category=category)
+        return images
 
     @classmethod
     def filter_by_location(cls):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
+        images = cls.objects.filter(location=location)
+        return images
