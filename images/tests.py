@@ -36,9 +36,9 @@ class ImageTestClass(TestCase):
 
 
     def get_image_by_id(self):
-        self.imagetest.save_image()
-        images = Image.objects.all()
-        self.assertTrue(len(images) > 0)
+        imagesfind=self.imagetest.get_image_by_id(self.imagetest.id)
+        images = Image.objects.filter(id=self.imagetest.id)
+        self.assertTrue(imagesfind,image)
 
     def search_image(category):
         self.imagetest.save_image()
