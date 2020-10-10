@@ -6,16 +6,13 @@ class ImageTestClass(TestCase):
 
 
     # Creating a new tag and saving it
-   
+    self.location = Location('Desktop')
+    self.location.save_location()
 
 
     # Set up method
     def setUp(self):
         self.imagetest= Image(id=1,image_name = 'image',image_author="james", image_description ='try this sample test image', location=self.location,category=self.category)
-
-
-    self.location = Location('Desktop')
-    self.location.save_location()
 
     # Testing  instance
     def test_instance(self):
