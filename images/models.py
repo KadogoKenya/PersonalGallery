@@ -18,26 +18,6 @@ class Location(models.Model):
         news = cls.objects.filter(pub_date__date = today)
         return images
 
-    @classmethod
-    def todays_news(cls):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
-
-    @classmethod
-    def todays_news(cls):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
-
-    @classmethod
-    def todays_news(cls):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
-
-
-
     def __str__(self):
         return self.name
 
@@ -71,3 +51,21 @@ class Image(models.Model):
 
     def delete_image(self):
         self.delete()
+
+     @classmethod
+    def tget_image_by_id(cls,id):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
+
+    @classmethod
+    def search_image_by_category(cls,category):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
+
+    @classmethod
+    def filter_by_location(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
