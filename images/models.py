@@ -1,5 +1,6 @@
 from django.db import models
 from django.db import models
+import datetime as dt
 
 
 
@@ -80,4 +81,10 @@ class Image(models.Model):
     def todays_images(cls):
         today = dt.date.today()
         images = cls.objects.filter(pub_date__date = today)
+        return images
+
+    
+    @classmethod
+    def search_by_category(cls,search_term):
+        images = cls.objects.filter(image_name__icontains=search_term)
         return images

@@ -15,7 +15,7 @@ def images_of_day(request):
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     day = convert_dates(date)
     
-    return render(request,'all-images/today-images.html',{"date":date, "images":images)
+    return render(request,'all-images/today-images.html',{"date":date, "images":images})
 
 def convert_dates(dates):
 
@@ -40,6 +40,22 @@ def past_days_images(request,past_date):
         assert False
 
     if date == dt.date.today():
-        return redirect(news_of_day)
+        return redirect(images_of_day)
 
-    return render(request, 'all-images/past-images.html', {"date": date})
+        images = Image.days_images(date)
+
+    return render(request, 'all-images/past-images.html', {"date": date, "images":images})
+
+
+def search_results(request):
+
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_images = Image.search_by_category(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-images/search.html',{"message":message,"images": searched_images})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-images/search.html',{"message":message})
