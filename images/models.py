@@ -1,6 +1,6 @@
 from django.db import models
 from django.db import models
-import datetime as dt
+
 
 
 class Location(models.Model):
@@ -13,10 +13,14 @@ class Location(models.Model):
         self.delete()
 
     @classmethod
-    def todays_images(cls):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return images
+    def get_locations(cls):
+        locations = Location.objects.all()
+        return locations
+
+    @classmethod
+    def update_location(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+
 
     def __str__(self):
         return self.name
@@ -52,7 +56,7 @@ class Image(models.Model):
     def delete_image(self):
         self.delete()
 
-     @classmethod
+    @classmethod
     def tget_image_by_id(cls,id):
         images = cls.objects.filter(id = id)
         return images
@@ -70,4 +74,10 @@ class Image(models.Model):
     @classmethod
     def update_image(cls,location,id):
         images = cls.objects.update(id=id)
+        return images
+
+    @classmethod
+    def todays_images(cls):
+        today = dt.date.today()
+        images = cls.objects.filter(pub_date__date = today)
         return images

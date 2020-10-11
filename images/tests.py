@@ -20,10 +20,10 @@ class LocationTestClass(TestCase):
     def test_get_locations(self):
         self.location.save_location()
         locations = Location.get_locations()
-        self.assertTrue(len(locations) > 1)
+        self.assertTrue(len(locations) > 0)
 
     def test_update_location(self):
-        new_location = 'kisii'
+        new_location = 'id'
         self.location.update_location(self.location.id, new_location)
         locationCurrent = Location.objects.filter(name='kisii')
         self.assertTrue(len(locationCurrent) > 0)
@@ -109,6 +109,8 @@ class ImageTestClass(TestCase):
     def test_get_images_today(self):
         today_images = Image.todays_images()
         self.assertTrue(len(today_images)>0)
+
+        
 
     
     
