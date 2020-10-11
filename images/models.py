@@ -1,6 +1,6 @@
 from django.db import models
 from django.db import models
-import datetime as dt
+# import datetime as dt
 
 
 
@@ -58,7 +58,7 @@ class Image(models.Model):
         self.delete()
 
     @classmethod
-    def tget_image_by_id(cls,id):
+    def get_image_by_id(cls,id):
         images = cls.objects.filter(id = id)
         return images
 
@@ -79,8 +79,8 @@ class Image(models.Model):
 
     @classmethod
     def todays_images(cls):
-        today = dt.date.today()
-        images = cls.objects.filter(pub_date__date = today)
+        # today = dt.date.today()
+        images = cls.objects.filter()
         return images
 
     

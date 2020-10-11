@@ -24,7 +24,7 @@ class LocationTestClass(TestCase):
 
     def test_update_location(self):
         new_location = 'id'
-        self.location.update_location(self.location.id, new_location)
+        self.location.update_location(self.location.id, location)
         locationCurrent = Location.objects.filter(name='kisii')
         self.assertTrue(len(locationCurrent) > 0)
 
@@ -75,8 +75,8 @@ class ImageTestClass(TestCase):
 
     def test_update_image(self):
         self.imagetest.save_image()
-        self.imagetest.update_image(self.imagetest.id,'images/test.jpg')
-        imageschange = Image.objects.filter(image='images/test.jpg')
+        self.imagetest.update_image(self.imagetest.id,'1')
+        imageschange = Image.objects.filter(image='images/1')
         self.assertTrue(len(imageschange) > 0)
 
     def test_delete_image(self):

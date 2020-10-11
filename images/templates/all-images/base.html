@@ -27,11 +27,20 @@
     <div class="jumbotron text-center">
       <h1 class="mb-4 d-none d-md-block text-center" style="padding-top: 0px;font-size: 30px;font-family: 'monospace', cursive;color:rgb(43, 40, 36)">
         <b>Welcome to My Personal Online Gallery Community</b></h1>
+        <p>Search images for: 
+          <ulstyle="list-style-type:disc; >
+            <li>Food and drinks</li>
+            <li>birthday</li>
+            <li>wedding</li>
+            <li>travel</li>
+
+          </ul>
+        </p>
 
       
     </div>
 
-    <h1>Images for {{date|date:"l d-F Y"}}</h1> 
+    <!-- <h1>Images for {{date|date:"l d-F Y"}}</h1>  -->
     {%endblock%}
   </div>
   {% block scripts %}
