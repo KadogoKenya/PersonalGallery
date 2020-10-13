@@ -22,11 +22,6 @@ class LocationTestClass(TestCase):
         locations = Location.get_locations()
         self.assertTrue(len(locations) > 0)
 
-    def test_update_location(self):
-        new_location = 'id'
-        self.location.update_location(self.location.id, location)
-        locationCurrent = Location.objects.filter(name='kisii')
-        self.assertTrue(len(locationCurrent) > 0)
 
     def test_delete_location(self):
         self.location.delete_location()
